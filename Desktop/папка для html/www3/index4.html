@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Html + CSS site</title>
+  <link rel="stylesheet" href="css3/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div id="logo" onclick="slowScroll('#top')">
+      <span>itProger</span>
+    </div>
+    <div id="about">
+      <a href="#" title="Возможности" onclick="slowScroll('#main')" >Возможности</a>
+      <a href="#" onclick="slowScroll('#overiew')" title="Преимущества" >Преимущества</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Контакты" >Контакты</a>
+      <a href="#" onclick="slowScroll('#faq')" title="Ответы на вопросы" >FAQ</a>
+    </div>
+  </header>
+
+   <div id="top">
+     <h1>Программирование</h1>
+     <h3>как способ жизни!</h3>
+  </div>
+
+  <div id="main">
+    <div class = "intro">
+      <h2>Наши услуги помогут вам!</h2>
+      <span>Большой выбор всего что может вам пригодиться</span>
+    </div>
+    <div class = "text">
+       <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+       Vitae pariatur neque facere nobis tempora eligendi, vel ratione,
+        quibusdam dolore! Aspernatur quis fuga ut, molestiae dolores,
+         quibusdam facere magnam nisi eaque id sit optio magni nobis.
+          Suscipit similique, perferendis harum soluta unde ipsa
+          voluptate provident porro, expedita hic consequuntur.
+          Esse, at. </span>
+      </div>
+  </div>
+
+  <div id="overview">
+    <h2>Преимущества</h2>
+    <h4>с нами все проще</h4>
+
+
+    <div class="imgg">
+      <img src="http://cdn2.hiphopsince1987.com/wp-content/uploads/2015/02/dark-sky-paradise-500x500.jpg" alt="">
+      <span>описанием того что тут вообще. биг шон</span>
+    </div>
+    <div class="imgg">
+      <img src="http://tayotv.net/wp-content/uploads/2015/06/el-500x500.jpg" alt="">
+      <span>описание того что тут вообще. скулбой кью</span>
+    </div>
+  </div>
+
+<div id="contacts">
+  <center><h5>Обратная связь</h5></center>
+  <form id="form_input">
+    <label for="name">Имя <span>*</span></label><br>
+    <input type="text" placeholder="Введите имя" name="name" id="name"><br>
+    <label for="email">Ваша почта <span>*</span></label><br>
+    <input type="email" placeholder="Введите email" name="email" id="email"><br>
+    <label for="message">Сообщение <span>*</span></label><br>
+    <textarea placeholder="Введите ваше сообщение" name="message" id="message"></textarea><br>
+    <div id="mess_send" class="btn">Отправить</div>
+  </form>
+</div>
+
+
+
+  <script type="text/javascript">
+  $("#logo").on('click',()=>{
+    slowScroll("#top");
+  })
+
+var time = 0;
+  function slowScroll(id) {
+        var totop = $(id).offset().top;
+        totop === 0 ? time = 0 : time = 500;
+        console.log(totop);
+                $( "html, body" ).animate({
+          scrollTop: totop
+        }, time);
+      }
+
+
+
+
+
+      $(document).on("scroll", function () {
+        if ($(window).scrollTop() === 0)
+          $("header").removeClass("fixed");
+        else
+          $("header").attr("class", "fixed");
+      });
+  </script>
+
+</body>
+</html>
